@@ -15,6 +15,18 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @can('subir documentos')
+                        <x-nav-link href="{{ route('documents.upload') }}" :active="request()->routeIs('documents.upload')">
+                            {{ __('Subir Documentos') }}
+                        </x-nav-link>
+                    @endcan
+
+                    @can('ver resúmenes')
+                        <x-nav-link href="{{ route('documents.index') }}" :active="request()->routeIs('documents.*')">
+                            {{ __('Mis Documentos') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -142,6 +154,18 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @can('subir documentos')
+                <x-responsive-nav-link href="{{ route('documents.upload') }}" :active="request()->routeIs('documents.upload')">
+                    {{ __('Subir Documentos') }}
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('ver resúmenes')
+                <x-responsive-nav-link href="{{ route('documents.index') }}" :active="request()->routeIs('documents.*')">
+                    {{ __('Mis Documentos') }}
+                </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
